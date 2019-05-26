@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fakestagram</title>
+    <link rel="stylesheet" href="insta.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'insta.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'insta-logo.png' %}">
+
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-left">
+            <img src="insta-logo.png" alt="logo" width="120px">
+        </div>
+        <div class="nav-center">
+            <i class="fas fa-search"></i>
+            검색
+        </div>
+        <div class="nav-right">
+            <i class="far fa-compass size"></i>
+            <i class="far fa-heart size"></i>
+            <i class="far fa-user size"></i>
+        </div>
+    </div>
+    <div>
+    <div class="profilebox">
+        <div class="profileimg">
+            <img src="https://picsum.photos/150/150/?random" alt="pro" class="circle">
+        </div>
+        <div class="profile">
+            <div class="profiledetail">
+                <div style="font-size: 28px">_chaeyeon99</div>
+                <div class="button"><a href = "{% url 'new' %}"> 게시물 올리기</a></div>
+                <i class="fas fa-cog size"></i>
+            </div>
+            <div class="profiledetail">
+                <div >게시물 <b>10</b></div>
+                <div >팔로워 <b>100M</b></div>
+                <div>팔로우 <b>0</b></div>
+            </div>
+            <div class="profiledetail">CHAE YEON</div>
+        </div>
+    </div>
+    <div class="highlights">
+        <div class="highlight">
+            <div class="highimg">
+                <img src="https://picsum.photos/75/75/?random" alt="high" class="circles">
+            </div>
+            <div class="highcaption">🇨🇷</div>
+        </div>
+        <div class="highlight">
+            <div class="highimg">
+                <img src="https://picsum.photos/75/75/?random" alt="high" class="circles">
+            </div>
+            <div class="highcaption">🇨🇳</div>
+        </div>
+    </div>
+    <div class="contents">
+        <div class="subnav">
+            <div style="margin-right: 60px">게시물</div>
+            <div style="margin-right: 60px">IGTV</div>
+            <div style="margin-right: 60px">저장됨</div>
+            <div>태그됨</div>
+        </div>
+        {% block content %}
+        <div class="imgs">
+        {%for post in posts %}
+            <div class="instaimg">
+                <a href="{% url 'detail' post.pk %}"></a>
+                <p>저는 '나무늘보' 이채연입니다.
+                평소에는 느리지만, 하고자하는 일에는 나무늘보의 강한 발톱같은 열정으로 파고듭니다!
+                제가 소개하고자 하는 서비스는,'면세점 가격 비교 서비스'입니다. 면세점은 할인이 많이 되지만
+                어떤 쿠폰을 적용하느냐, 얼만큼 많은 물건을 구매하느냐에 따라 할인률 변동이 너무 심합니다.
+                그래서 최적의 면세점 할인률을 제공하는 서비스를 개발한다면, 많은 사람이 사용할 수 있을 것이라 생각합니다. 
+                </p> 
+            </div>
+        
+        {% endfor %}
+        </div>
+         {% endblock %}
+    </div>
+</body>
+
+
+<!-- <style>
+    div {
+        border: 2px solid grey;
+        margin: 10px;
+    }    
+    div div {
+        border: 2px solid blue;
+    }    
+    div div div {
+        border: 2px solid hotpink;
+    }
+    div div div div {
+        border: 2px solid orange;
+    }
+    div div div div div {
+        border: 2px solid rgb(194, 78, 194);
+    }
+</style> -->
+
+</html>

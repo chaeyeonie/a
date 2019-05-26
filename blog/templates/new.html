@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'new.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'insta-logo.png' %}">
+
+    
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-left">
+            <img src="insta-logo.png" alt="logo" width="120px">
+        </div>
+        <div class="nav-center">
+            <i class="fas fa-search"></i>
+            검색
+        </div>
+        <div class="nav-right">
+            <i class="far fa-compass size"></i>
+            <i class="far fa-heart size"></i>
+            <i class="far fa-user size"></i>
+        </div>
+    </div>
+    
+    <div class = "upload">
+        <div>
+        <form method='POST' enctype='multipart/form-data' style="margin-top:70px;">
+            {% csrf_token %}}
+            {{ form.as_p }}
+            <input type='submit' value="제출" />
+        </form>
+        {% comment %} <form method='POST'>
+            {% csrf_token %}}
+            {{ form.as_p }}
+            <input type='submit' />
+        </form> {% endcomment %}
+        </div>
+    </div>
+</body>
+</html>

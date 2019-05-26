@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% extends "insta.html" %}
+</head>
+<body>
+{% block content %}
+    <div>
+        <img src = "{{ post.img.url }}" />
+    </div>
+    <div>
+        <p>{{ post.contents }}</p>
+    </div>
+    <ul>
+     {% for comment in post.comments.all %}
+     <li>{{ comment.content }} <a href="{% url 'delete_comment' post.pk comment.pk %}">삭제하기</a></li>
+     {% endfor %}
+    </ul>
+{% endblock %}
+</body>
+</html>
